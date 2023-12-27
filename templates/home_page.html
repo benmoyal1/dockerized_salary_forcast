@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Salary Pros!{% endblock %}
+
+{% block content_title %}Welcome to Salary Pros!
+    <div style="text-align: center;">
+        <button class="big-button" onclick="window.location.href='{% url 'salary-prediction' %}'">Check Your Salary!</button>
+{#        <button class="big-button" onclick="window.location.href='{% url 'salary-present' %}'">Check everyone's salary!</button>#}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+<style>
+    .big-button {
+        width: 50%;
+        padding: 10px; /* Adjust padding as needed for styling */
+        margin-bottom: 10px; /* Add margin for separation */
+        font-size: 16px; /* Adjust font size as needed */
+        /* Add other styling as needed */
+    }
+</style>

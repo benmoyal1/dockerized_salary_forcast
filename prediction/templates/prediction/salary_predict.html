@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Prediction Form{% endblock %}
+
+{% block content %}
+  <h2>Enter Your information:</h2>
+  <form method="post" action="{% url 'salary-prediction' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if result %}
+    <p>Prediction Result: {{ result }}</p>
+  {% endif %}
+{% endblock %}
