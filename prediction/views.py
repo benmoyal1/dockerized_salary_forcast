@@ -4,7 +4,7 @@ from django.views import View
 from .forms import LinearRegressionModelForm
 import numpy as np
 import locale
-PICKLE_FILE = 'Dataprocessig/pickle_data_models.pkl'
+PICKLE_FILE = 'dataprocessing/pickle_data_models.pkl'
 
 def format_number(y: float) -> str:
     locale.setlocale(locale.LC_ALL, '')
