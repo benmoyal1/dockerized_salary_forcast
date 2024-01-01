@@ -1,7 +1,7 @@
 from django.db import models
 import pickle
 
-PICKLE_FILE = 'Dataprocessig/pickle_data_models.pkl'
+PICKLE_FILE = 'dataprocessing/pickle_data_models.pkl'
 
 
 def load_parameters():
