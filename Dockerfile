@@ -8,16 +8,14 @@ ENV PYTHONUNBUFFERED 1
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy only the Pipfile and Pipfile.lock into the container
+COPY Pipfile Pipfile.lock /app/
+
+# Install any needed packages specified in Pipfile.lock
+RUN pip install --upgrade pip && pip install pipenv && pipenv install --deploy --ignore-pipfile
+
+# Copy the rest of the application code into the container
 COPY . /app/
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip
-RUN pip install pipenv
-RUN pipenv install --deploy --ignore-pipfile
-
-# Install additional dependencies using pipenv (example: scikit-learn)
-RUN pipenv install scikit-learn
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000

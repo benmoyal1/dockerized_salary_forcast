@@ -4,7 +4,7 @@ services:
   web:
     container_name: django_app
     build: .
-    command: bash -c "pipenv install --deploy --ignore-pipfile && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "pipenv run python manage.py migrate && pipenv run python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
