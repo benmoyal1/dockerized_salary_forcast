@@ -16,7 +16,7 @@ def format_number(y: float) -> str:
 def load_models():
     with open(PICKLE_FILE,'rb') as pkl:
         binary_data = pickle.load(pkl)
-    decision_tree = binary_data["decision_tree"]
+    decision_tree = binary_data["random_forest_reg"]
     le_countries = binary_data["le_country"]
     le_educations = binary_data["le_education"]
     return decision_tree, le_educations, le_countries
@@ -33,7 +33,7 @@ class SalaryPredictionView(View):
         form = LinearRegressionModelForm(request.POST)
         if form.is_valid():
             # # Load the linear regression model
-            decision_tree, le_education, le_country = load_models()
+            random_forest_reg, le_education, le_country = load_models()
 
             # Get parameters from the form
             param1 = form.cleaned_data['country']
@@ -43,9 +43,9 @@ class SalaryPredictionView(View):
             X = np.array([[param1, param2, param3]])
             X[:, 0] = le_country.transform(X[:, 0])
             X[:, 1] = le_education.transform(X[:, 1])
-            X = X.astype(float)
+            X = X.astype(np.float32)
 
-            y_pred = decision_tree.predict(X)
+            y_pred = random_forest_reg.predict(X,check_input=False)
             y_pred_str = format_number(y_pred)
 
             return render(request, self.template_name, {'form': form, 'result': y_pred_str})
