@@ -16,7 +16,7 @@ def format_number(y: float) -> str:
 def load_models():
     with open(PICKLE_FILE,'rb') as pkl:
         binary_data = pickle.load(pkl)
-    decision_tree = binary_data["random_forest_reg"]
+    decision_tree = binary_data["DecisionTreeRegressor"]
     le_countries = binary_data["le_country"]
     le_educations = binary_data["le_education"]
     return decision_tree, le_educations, le_countries
