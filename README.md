@@ -13,16 +13,16 @@ The trained model is saved in the `dataprocessing/pickle` directory and is based
 
 ### Building and Running Docker Containers
 
-1.Open a terminal and navigate to the project directory:
+ 1.Open a terminal and navigate to the project directory:
  ```
    cd /path/to/your/project
  ```
 
-2.Build the docker image
+ 2.Build the docker image
  ```
    docker-compose build
  ```
-3.Run the container
+ 3.Run the container
  ```
    docker-compose up
  ```
