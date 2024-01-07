@@ -15,17 +15,17 @@ The trained model is saved in the `dataprocessing/pickle` directory and is based
 
 1. Open a terminal and navigate to the project directory:
 
-   ```bash
+ ```bash
    cd /path/to/your/project
-   ```
+ ```
 2.Build the docker image
-   ```
+ ```
    docker-compose build
-   ```
+ ```
 3. Run the container
-   ```
+ ```
    docker-compose up
-   ```
+ ```
 dont forget to change the host to 127.0.0.1:8000 when choosing to run locally
 
 
