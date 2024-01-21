@@ -27,7 +27,18 @@ The trained model is saved in the `dataprocessing/pickle` directory and is based
    docker-compose up
  ```
 dont forget to change the host to 127.0.0.1:8000 when choosing to run locally
-
+# dont feel like docker? no prob
+just install the requirements.txt with 
+```
+pip install -r requirements.txt
+```
+amd then 
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 
+``
+and enter to localhost:8000 on your machine 
 
 
    
